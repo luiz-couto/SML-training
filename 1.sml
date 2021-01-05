@@ -13,3 +13,13 @@ fun sumLists ([], []) = []
 sumLists([2, 5, 10], [1, 15, 4])
 
 (* 4 *)
+fun max ([]) = 0 (* retorna 0 caso a lista dada seja uma lista vazia *)
+  | max (x::[]) = x
+  | max (x::y::[]) = if x >= y then x else y
+  | max (x::y::t) = if x >= y then max(x::t) else max(y::t)
+max([2, 1, 7, 3])
+
+(* 5 *)
+fun cumSum (x::y::xs) = x :: cumSum(x+y::xs)
+  | cumSum xs = xs
+cumSum([6, 10, 3, 11])
