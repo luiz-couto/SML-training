@@ -23,3 +23,8 @@ max([2, 1, 7, 3])
 fun cumSum (x::y::xs) = x :: cumSum(x+y::xs)
   | cumSum xs = xs
 cumSum([6, 10, 3, 11])
+
+(* 6 *)
+fun greet "" = "Hello nobody"
+  | greet str = "Hello " ^ str
+greet("Janis")
