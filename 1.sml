@@ -80,3 +80,43 @@ planetAge 24 Jupiter;
 
 
 (* 11 *)
+datatype btree = Leaf
+  | Node of (btree * int * btree);
+
+fun sumAll Leaf = 0
+  | sumAll (Node (lc, m, rc)) = m + sumAll(lc) + sumAll(rc);
+
+sumAll(Node (Node (Leaf, 1, Leaf), 6, Node (Leaf, 12, Leaf)));
+
+
+(* 12 *)
+
+
+
+
+
+(* 14 *)
+(*
+
+a) int * real = real
+
+b) ((int * real = real) * int) = real
+
+c) (int * (real * int = real)) = real
+
+d) (((int * int = int) * real = real) * (real * int = real)) = real
+
+*)
+
+
+(* 15 *)
+(*
+
+a) Em SML é necessário que todo if possua um else
+
+b) Os tipos da operação de multiplicação devem ser os mesmos. No caso, os tipos são int e float, o que gera um erro.
+
+c) Escrever a função dessa forma é redundante, já que nunca passará pelo segundo caso. No exemplo dado, se chamarmos
+   a função com 0 ele casaria já com o primeiro caso. Os casos bases devem vir antes na declaração de funções recursivas.
+
+*)
