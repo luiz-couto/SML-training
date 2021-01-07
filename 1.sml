@@ -95,8 +95,11 @@ multiPairs [2, 5, 10] [4, 10, 8];
 
 
 (* 13 *)
+fun compose (f, g, x, y) = f(g x y);
+fun sum x y = x+y;
+fun square x = x*x;
 
-
+compose (sum, square, 4, 5);
 
 (* 14 *)
 (*
