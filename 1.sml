@@ -90,8 +90,11 @@ sumAll(Node (Node (Leaf, 1, Leaf), 6, Node (Leaf, 12, Leaf)));
 
 
 (* 12 *)
+fun multiPairs listx listy = ListPair.map (fn (x,y) => x*y) (listx, listy);
+multiPairs [2, 5, 10] [4, 10, 8];
 
 
+(* 13 *)
 
 
 
