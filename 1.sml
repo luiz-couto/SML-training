@@ -52,3 +52,14 @@ allTrue([true, true, true])
 
 
 (* 9 *)
+datatype dinheiro = Centavos of int | Real of real | Pessoa_Dinheiro of (string * real)
+
+fun amount (Centavos din) = din
+  | amount (Real din) = round (din * 100.0)
+  | amount (Pessoa_Dinheiro din) = round ((#2 din) * 100.0)
+
+amount(Real(2.0))
+amount(Centavos(2))
+amount(Pessoa_Dinheiro("Gene", 2.5))
+
+(* 10 *)
