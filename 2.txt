@@ -1,0 +1,90 @@
+## Semantica Formal
+
+(1)
+z=1; while ~(y=0) do (z := x*z; y := y-1)
+
+
+(2)
+B[~(x=1)]s = B[~B(A[x]s = A[1])]
+           = B[~B(s x = N[1])]
+           = B[~B(3 = 1)]
+           = B[~ff]
+           = tt
+
+
+(3)
+true[y->a0] = true
+false[y->a0] = false
+(a1 = a2)[y->a0] = (a1[y->a0]) = (a2[y->a0])
+(a1 <= a2)[y->a0] = (a1[y->a0]) <= (a2[y->a0])
+(~b)[y->a0] = ~(b[y->a0])
+(a1 ∧ a2)[y->a0] = (a1[y->a0]) ∧ (a2[y->a0])
+
+
+(4)                               
+                                                                                                                                     <z := z+1, sz2> -> sz3 | <x := x-y, sz2> -> sx3
+                                                                                                                                   ----------------------------------------------------
+                                                                           <z := z+1, sz1> -> sz2 | <x := x-y, sz1> -> sx2                 <(z := z+1; x := x-y), sz2> -> sx3
+                                                                          ---------------------------------------------------      ----------------------------------------------------
+                    <z := z+1, sz0> -> sz1 | <x := x-y, sz0> -> sx1                 <(z := z+1; x := x-y), sz1> -> sx2           |  <while y ≤ x do (z := z+1; x := x-y), sz2> -> sx3>
+                    ------------------------------------------------       -----------------------------------------------------------------------------------------------------------------
+                           <(z := z+1; x := x-y), sz0> -> sx1           |                               <while y ≤ x do (z := z+1; x := x-y), sz1> -> sx2>
+                    ----------------------------------------------------------------------------------------------------------------------------------------------
+<z := 0, s> -> sz0         |          <while y ≤ x do (z := z+1; x := x-y), sz0> -> sx3>
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    <z := 0; while y ≤ x do (z := z+1; x := x-y), s> -> sx3
+
+
+
+sz0 = s[z->0]
+
+sz1 = s[z->1]
+sx1 = s[x->12]
+
+sz2 = s[z->2]
+sx2 = s[x->7]
+
+sz3 = s[z->3]
+sx3 = s[x->2]
+
+
+(5)
+(a) Não termina caso o valor inicial de x seja menor que 1.
+(b) Termina pois, caso x seja menor que 1, o loop não é iniciado. Caso contrário, x eventualmente atingirá um valor menor menor que 1, saindo do loop.
+(c) Não termina. A avaliação de true sempre é true.
+
+(6)
+
+
+## Binding, escopo
+(1)
+(a) 1
+(b) 2
+
+(2)
+(a) Escopo de g = bloco 1, definido pela função g entre as linhas 1 e 13
+    Escopo g' = bloco 2, definido pelo let declarado entre as linhas 2 e 13 dentro da função g
+    Escopo de f = bloco 3, definido pela função f na linha 4
+    Escopo de h = bloco 4, definido pela função h entre as linhas 5 e 10
+    Escopo de h' = bloco 5, definido pelo let declarado entre as linhas 6 e 10 dentro da função h
+
+(b) g -> função
+    inc -> val
+    f -> função
+    y -> val (parametro)
+    h -> função
+    z -> val (parametro)
+    x -> val (parametro)
+
+(c) g -> está no escopo geral
+    inc -> definido no bloco 2, e também definido no bloco 5
+    f -> definido no bloco 2
+    y -> definido no bloco 3
+    h -> definido no bloco 2
+    z -> definido no bloco 4
+    x -> definido no bloco 1
+
+(d) O valor de g 5 seria igual a 6. Caso SML possuisse escopo dinâmico, 
+    tal valor seria igual a 7. Isso porque com o escopo dinâmico o valor
+    da variavel inc seria definido a partir do escopo do let definido pela
+    função h.
