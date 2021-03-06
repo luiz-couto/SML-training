@@ -1,0 +1,23 @@
+(5)
+
+#1 -> Pavao is an animal
+
+#2 -> Tigre is a mammal
+
+#3 -> Krypto is a dog
+
+#4 -> Pavao, which is an animal, is eating.
+
+#5 -> Tigre, which is a mammal, is sucking milk.
+
+#6 -> Tigre, which is an animal, is eating.
+
+#7 -> Krypto is barking rather loudly.
+
+#8 -> Krypto, which is a mammal, is sucking milk.
+
+#9 -> Krypto barks when it eats.
+
+#10 -> Erro. a1 não implementa bark
+
+#11 -> Krypto is barking rather loudly.

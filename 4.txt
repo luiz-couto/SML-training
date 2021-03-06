@@ -1,0 +1,8 @@
+(4)
+
+(a) Os objetos devem possuir tanto o método isNotEmpty quanto o método remove
+
+(b) Duck Typing é um estilo de tipagem no qual são os métodos e propriedades de um objeto que determinam a
+semântica válida, em vez de uma interface explícita ou herança. No exemplo da questão, cada vez que a função
+removeAll é chamada, objetos sem herança relacionada ou que implementam tipos diferentes podem ser usados,
+contando que suportem os métodos isNotEmpty e remove. Portanto é um exemplo do conceito de Duck Typing

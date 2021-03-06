@@ -1,0 +1,3 @@
+(6) O problema do diamante é quando uma classe herda duas classes (implementações concretas) e há conflito de
+implementações. Se por exemplo as classes B e C herdam de A, e D herda das classes B e C:
+Se B chama um método definido em A que está redefinido tanto em B quanto em C, qual método será chamado?
